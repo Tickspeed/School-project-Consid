@@ -1,0 +1,22 @@
+---
+import "../assets/navbar_style.css"
+import Button from "./Button.astro"
+const {navItems, buttonVariant = "navbar", variant = "inline"} = Astro.props
+let buttonSize;
+if (variant === "vertical"){
+    buttonSize = "stretch-h"
+} else if (variant === "inline"){
+    buttonSize = "stretch-v"
+}
+const ulClassName = `ul ul--${variant}`
+---
+
+<nav class = "navbar">
+    <ul class = {ulClassName}>
+        {navItems.map(item => (
+            <li>
+                <Button variant = {buttonVariant} size = {buttonSize} href = {item.href}> {item.text}</Button>
+            </li>
+        ))}
+    </ul>
+</nav>

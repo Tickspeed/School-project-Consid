@@ -1,0 +1,30 @@
+.home-content{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+    margin: 0px 13%;
+    
+}
+.home-content--quote-author{
+    font-style: italic;
+    font-weight: normal;
+}
+
+.section--custom1{
+    
+    padding: 2vw 0px;
+    min-height: 30vh;
+}
+
+.section--custom1 p{
+    color: #333333;
+}
+.section--custom1 h2{
+    font-size: 2.6rem;
+    color: #1A2B4C;
+    margin: 0;
+    
+}
+
+

@@ -1,0 +1,56 @@
+---
+const{title, paragraph, buttonText, variant} = Astro.props;
+
+const CTAsectionClass = `CTAsection CTAsection--${variant}`;
+
+import Button from "./Button.astro";
+---
+
+<article class = {CTAsectionClass}>
+    <h2>{title}</h2>
+    <p>{paragraph}</p>
+    <Button size = "large">{buttonText}</Button>
+</article>
+
+<style>
+
+.CTAsection{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    padding: 4vw;
+    min-height: 30vh;
+    margin: 2vh 0px;
+}
+
+.CTAsection--green{
+    background-color: #2ecc71;
+    
+}
+
+.CTAsection--green h2{
+    color: #ffffff;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.CTAsection--green p{
+    color: #1a2b4c ;
+}
+
+.CTAsection--light-blue{
+    background-color: #3498db;
+    
+}
+
+.CTAsection--light-blue h2{
+    color: #ffffff;
+    font-size: 2rem;
+    margin: 0;
+}
+
+.CTAsection--light-blue p{
+    color: #dfdfdf ;
+}
+</style>

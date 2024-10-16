@@ -1,0 +1,35 @@
+---
+import "../assets/header_style.css"
+import Navbar from "./Navbar.astro"
+import Button from "./Button.astro"
+
+const navItems = [
+  {
+    text: "Planner",
+    href: "/planner"
+  },
+  {
+    text: "Calculator",
+    href: ""
+  },
+  {
+    text: "Home",
+    href: "/"
+  },
+  {
+    text: "About",
+    href: ""
+  }
+]
+---
+
+<header class = "headerbar">
+      <div class = "leftdiv">
+          <div class = "mainlogo"><a href="#">Gym Planner</a></div>
+          <Navbar navItems = {navItems} buttonVariant = "navbar"/>
+      </div>
+      <div class = "sign_in">
+          <Button variant = "navbar" size = "stretch-v">Log in/Register</Button>
+      </div>
+</header>
+ 

@@ -1,0 +1,93 @@
+.button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    border-radius: 1px;
+    cursor: pointer;
+    text-decoration: none;
+    transform-origin: center;
+}
+
+a.button {
+    color: inherit;
+}
+
+
+
+
+/* variants */
+.button--primary{
+border: none;
+color: rgba(255, 255, 255, 0.76);
+background-color: hsl(239, 56%, 40%);
+transition: all 0.2s ease-in-out;
+}
+
+.button--primary:hover{
+color: white;
+transform: scale(1.05);
+}
+
+.button--navbar{
+    min-width: 10vw;
+    border: none;
+    color: #F4F4F4 !important;
+    background-color: #1a2b4c;
+    transition: all 0.2s ease-in-out;
+}
+
+.button--navbar:hover{
+    color: #ffffff;
+    filter: brightness(1.1);
+    background-color: #14213d;
+}
+
+.button--green-background-gray-border{
+    padding: 1vw 1vw;
+    border: none;
+    box-shadow: 0 0 5px 1px #333333;
+    background-color: #2ecc71;
+    color: #dedede;
+    border-radius: 10px;
+}
+
+.button--green-background-gray-border:hover{
+    filter: brightness(1.1);
+}
+
+
+
+
+/* sizes */
+
+.button--stretch-h{
+    width: 100%;
+    font-size: 1.4vw;
+    padding: 1vw 0vw;
+}
+
+
+.button--stretch-v{
+    font-size: 1.4vw;
+    padding: 0rem 1vw;
+    height: 100%;
+}
+
+.button--small{
+    padding: 0.4rem 1rem;
+    font-size: 0.6rem;
+}
+
+.button--medium{
+    padding: 0.6rem 2rem;
+    font-size: 0.8rem;
+}
+
+.button--large{
+    padding: 0.8rem 3rem;
+    font-size: 1.4rem;
+}
+
+
+

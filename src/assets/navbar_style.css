@@ -1,0 +1,42 @@
+.navbar{
+    display: flex;
+    justify-content: start;
+    align-items: stretch;
+    
+    
+}
+
+ul{
+    margin: 0;
+    padding: 0;
+}
+
+.ul--inline{
+    
+    height: 100%;
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: stretch;
+    list-style: none;
+}
+
+.ul--vertical{
+   
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: stretch;
+}
+
+.page_list{
+    display: flex;
+    padding-top: 4vh;
+}
+
+li{
+    display: flex;
+    align-items: stretch;
+}
+
+

@@ -1,0 +1,28 @@
+---
+import "../assets/exercise_card_style.css"
+const {name = "Pull ups", imageUrl = "/images/pullups.jpg", notes = "Lorem ipsum dolor sit amet", sets = "3", min_reps = "5", max_reps = "10"} = Astro.props
+---
+
+<article>
+    <div class = "card_div">
+        {imageUrl && (
+        <div class = "topimg_div">
+            <img src={imageUrl} alt={"Image of ${name}"}>
+        </div>
+        )}
+        <div class = "bottom_div">
+            <div class = "header_div">
+                <header>{name}</header>
+            </div>
+            <div class = "notes_div">
+                <p>{notes}</p>
+            </div>
+            <div class = "info_div">
+                <ul>
+                    <li><strong>Sets: </strong> {sets}</li>
+                    <li><strong>Reps: </strong> {min_reps} - {max_reps}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</article>

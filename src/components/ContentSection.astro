@@ -1,0 +1,20 @@
+---
+const{title, paragraph, image} = Astro.props;
+---
+
+<section class = "section--content">
+    <h2>{title}</h2>
+    <p>{paragraph}</p>
+    {image && <img src = {image} alt = {title}/>}
+</section>
+
+<style>
+.section--content{
+    padding: 4vw;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: start;
+}
+</style>
+

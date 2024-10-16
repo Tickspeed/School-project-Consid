@@ -1,0 +1,20 @@
+---
+import "../assets/planner_navbar_style.css"
+import Button from "./Button.astro"
+const {navItems, buttonVariant = "black-background-white-border", variant = "border-inline"} = Astro.props
+let buttonSize;
+if (variant === "border-inline"){
+    buttonSize = "large"}
+
+const ulClassName = `ul ul--${variant}`
+---
+
+<nav class = "planner-navbar">
+    <ul class = {ulClassName}>
+        {navItems.map(item => (
+            <li>
+                <Button variant = {buttonVariant} size = {buttonSize} href = {item.href}> {item.text}</Button>
+            </li>
+        ))}
+    </ul>
+</nav>

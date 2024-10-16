@@ -1,0 +1,22 @@
+.planner-navbar{
+    background-color: #dedede;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+.planner-navbar ul.last{
+    border-right: none;
+}
+
+.ul--border-inline{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    
+}
+
+li{
+    display: flex;
+}

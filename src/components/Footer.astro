@@ -1,0 +1,37 @@
+---
+import "../assets/footer_style.css"
+import Navbar from "./Navbar.astro"
+
+const navItems = [
+    {
+        text: "About us",
+        href: ""
+    },
+    {
+        text: "Contact",
+        href: ""
+    },
+    {
+        text: "Login",
+        href: ""
+    },
+    {
+        text: "Register",
+        href: ""
+    }
+]
+---
+
+<footer>
+    <div class = "foot_div">
+        <div class = "logo">
+            <a href="">Gym Planner</a>
+        </div>
+        <div class = "page_list">
+            <Navbar navItems = {navItems} variant = "vertical" />
+        </div>
+        <div class = "right">
+
+        </div>
+    </div>
+</footer>

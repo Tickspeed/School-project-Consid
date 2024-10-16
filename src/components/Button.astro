@@ -1,0 +1,21 @@
+---
+import "../assets/button_style.css"
+
+const {variant = "primary", size = "medium", href} = Astro.props
+
+let Element;
+if (href){
+    Element = "a";
+} else{
+    Element = "button";
+}
+
+
+
+
+const className = `button button--${variant} button--${size}`;
+---
+
+<Element href = {href} class = {className}>
+    <slot />
+</Element>

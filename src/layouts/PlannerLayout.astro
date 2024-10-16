@@ -1,0 +1,12 @@
+---
+import PlannerNavbar from "../components/PlannerNavbar.astro"
+const navItems = [
+    {text: "Exercises", href: ""},
+    {text: "Workouts", href: ""},
+    {text: "Calendar", href: ""},
+]
+---
+
+
+<PlannerNavbar buttonVariant = "green-background-gray-border" navItems = {navItems} variant = "border-inline"/>
+<slot/>
