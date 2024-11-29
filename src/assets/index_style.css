@@ -21,7 +21,7 @@
     color: #333333;
 }
 .section--custom1 h2{
-    font-size: 2.6rem;
+    font-size: var(--font-size-xl);
     color: #1A2B4C;
     margin: 0;
     

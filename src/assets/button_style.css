@@ -9,8 +9,9 @@
     transform-origin: center;
 }
 
-a.button {
-    color: inherit;
+a.button{
+    margin: 0;
+    padding: 0;
 }
 
 
@@ -18,15 +19,21 @@ a.button {
 
 /* variants */
 .button--primary{
-border: none;
+border: 1px solid white;
 color: rgba(255, 255, 255, 0.76);
 background-color: hsl(239, 56%, 40%);
-transition: all 0.2s ease-in-out;
+transition: transform 0.2s ease-in-out;
 }
 
 .button--primary:hover{
 color: white;
 transform: scale(1.05);
+}
+
+.button--primary:active{
+    background-color: white;
+    color: hsl(239, 56%, 40%);  
+    border: 1px solid hsl(239, 56%, 40%);
 }
 
 .button--navbar{
@@ -44,7 +51,7 @@ transform: scale(1.05);
 }
 
 .button--green-background-gray-border{
-    padding: 1vw 1vw;
+
     border: none;
     box-shadow: 0 0 5px 1px #333333;
     background-color: #2ecc71;
@@ -56,37 +63,46 @@ transform: scale(1.05);
     filter: brightness(1.1);
 }
 
+.button--CTA{
+    border: none;
+    background-color: #1a2b4c ;
+    color: #ffffff !important;
+    border-radius: 5px;
+    border: 0.2vw solid #1A2B4C;
+    transition: all 0.2s ease-in-out;
+}
+
+.button--CTA:hover{
+    color: white;
+    transform: scale(1.05);
+}
+
 
 
 
 /* sizes */
 
-.button--stretch-h{
-    width: 100%;
-    font-size: 1.4vw;
-    padding: 1vw 0vw;
-}
 
 
-.button--stretch-v{
-    font-size: 1.4vw;
-    padding: 0rem 1vw;
-    height: 100%;
+.button--stretch{
+    font-size: 1.3vw;
+    padding: 0.5vh 2vw;
+    
 }
 
 .button--small{
-    padding: 0.4rem 1rem;
-    font-size: 0.6rem;
+    padding: 0.4rem 1.6rem;
+    font-size: 0.6vw;
 }
 
 .button--medium{
-    padding: 0.6rem 2rem;
-    font-size: 0.8rem;
+    padding: 0.6rem 1.6rem;
+    font-size: 1vw;
 }
 
 .button--large{
-    padding: 0.8rem 3rem;
-    font-size: 1.4rem;
+    padding: 0.6rem 1.6rem;
+    font-size: 1.6vw;
 }
 
 

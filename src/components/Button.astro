@@ -1,5 +1,5 @@
 ---
-import "../assets/button_style.css"
+
 
 const {variant = "primary", size = "medium", href} = Astro.props
 
@@ -19,3 +19,8 @@ const className = `button button--${variant} button--${size}`;
 <Element href = {href} class = {className}>
     <slot />
 </Element>
+
+
+<style>
+    @import "../assets/button_style.css";
+</style>

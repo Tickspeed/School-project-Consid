@@ -1,32 +1,41 @@
 ---
 
 
-import "../assets/index_style.css"
+
 import MainLayout from "../layouts/MainLayout.astro"
 import CallToActionSection from "../components/CallToActionSection.astro"
-import Button from "../components/Button.astro"
+import Link from "../components/Link.astro"
+import Logo from "../components/Logo.astro"
 
 ---
 <MainLayout title = "Home">
+    
     <div class = "home-content">
+        
+        <CallToActionSection 
+            title = "Make your workout easier!" 
+            paragraph = "Are you overwhelmed by the amount of information you have to keep track of when working out? Simplify your planning with out workout planner!" 
+            buttonText = "Go to Planner"
+            href = "/planner"
+            variant = "green"/>
+
         <section class = "section--custom1">
             <h2>"We are what we repeatedly do. Excellence then is not an act but a habit."- <span class = "home-content--quote-author">Aristotle</span></h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
         </section>
-        <CallToActionSection 
-            title = "Our workout planner will help you keep track of your workouts and exercises" 
-            paragraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos." 
-            buttonText = "Go to Planner"
-            variant = "green"/>
+
         <CallToActionSection 
             title = "Calculators to show how much and when to eat" 
             paragraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos." 
             buttonText = "Go to calculators"
             variant = "light-blue"/>
+        
     </div>
 </MainLayout>
 
-
+<style>
+   @import  "../assets/index_style.css"
+</style>
 
 
 

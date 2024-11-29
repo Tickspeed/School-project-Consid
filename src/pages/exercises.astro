@@ -1,0 +1,124 @@
+---
+import PlannerLayout from "../layouts/PlannerLayout.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import ExerciseCard from "../components/Exercise-card.astro";
+import ExerciseModal from "../components/ExerciseModal.astro";
+
+
+const exercises = [
+    {title: "Pull Ups", image: "/images/pullups.jpg", sets: 3, minReps: 5, maxReps: 10, weight: 0, muscleGroup: "Back", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
+    {title: "Push Ups", sets: 3, minReps: 5, maxReps: 10, weight: 0, muscleGroup: "Chest", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
+    {title: "Squats",  sets: 3, minReps: 5, maxReps: 10, weight: 0, muscleGroup: "Legs", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."},
+]
+---
+
+<MainLayout>
+    <PlannerLayout>
+        <div class = "content-box">
+            <button id = "add-bnt">Add new</button>
+            <div class="exercises-grid">
+                {exercises.map(item => (
+                    <ExerciseCard
+                    title = {item.title}
+                    image = {item.image}
+                    sets = {item.sets}
+                    minReps = {item.minReps}
+                    maxReps = {item.maxReps}
+                    weight = {item.weight}
+                    description = {item.description}
+                    id = {item.id}
+                    ></ExerciseCard>
+                ))}
+            </div>
+        </div>
+        
+        <dialog id = "modal">
+            <ExerciseModal></ExerciseModal>
+        </dialog>
+    </PlannerLayout>
+</MainLayout>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const modal = document.querySelector('dialog')
+        const editButtons = document.querySelectorAll('[data-edit-btn-id]')
+        const addButton = document.querySelector('[add-bnt]')
+        const loadModal = (e) => {
+            modal?.showModal();
+            if(e.target.dataset.addBnt){
+                
+            }
+        }
+        editButtons.forEach(editButton => {
+            editButton.addEventListener('click', loadModal)
+        })
+
+        
+
+    });
+    
+</script>
+
+<style>
+    .exercises-grid{
+        padding: 0px var(--padding-sm);
+        
+
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 3vh;
+
+        overflow: auto;
+        max-height: 80vh;
+
+        border: solid 2px var(--dark-gray);
+
+        background-color: var(--white);
+    }
+    #modal{
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        
+
+        border: solid 2px var(--dark-gray);
+    }
+    .content-box{
+        margin: 0 5vw;
+    }
+
+    #add-bnt{
+        margin-bottom: 1vh;
+    }
+
+    button{
+        background-color: var(--yellow);
+        color: var(--white);
+        border: none;
+        padding: var(--padding-sm) var(--padding-md);
+
+        grid-row: 1 / span 2;
+        grid-column: 2;
+
+        transition: transform 0.1s;
+    }
+    button:hover{
+        filter: brightness(0.8);
+    }
+    button:active{
+    transform: scale(1.05);
+    }
+
+    @media (min-width: 500px){
+        .exercises-grid{
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (min-width: 900px){
+        .exercises-grid{
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+</style>

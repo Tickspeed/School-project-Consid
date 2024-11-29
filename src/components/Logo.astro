@@ -1,0 +1,40 @@
+---
+
+
+const {height, ...rest} = Astro.props;
+const className = `img`
+---
+
+<div class="logo-div">
+    <a href="/">
+        <img title = "Home"src="/images/gym_logo_final.png" alt="Logo" class = {className}>
+    </a>
+</div>
+
+<style define:vars={{imgHeight: height}}>
+.logo-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    
+    
+}
+
+.logo-div img {
+    object-fit: scale-down;
+    
+    
+}
+
+.logo-div img:hover {
+    cursor: pointer;
+}
+
+.img{
+    height: var(--imgHeight);
+}
+
+
+
+</style>

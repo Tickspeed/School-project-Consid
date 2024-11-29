@@ -1,15 +1,2 @@
-.logo-div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 3vh 3vw;
-}
 
-.logo-div img {
-    object-fit: scale-down;
-}
-
-.logo-div img:hover {
-    cursor: pointer;
-}
 

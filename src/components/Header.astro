@@ -1,7 +1,9 @@
 ---
-import "../assets/header_style.css"
-import Navbar from "./Navbar.astro"
-import Button from "./Button.astro"
+
+import Navbar from "./Navbar.astro";
+import Link from "./Link.astro";
+import Logo from "./Logo.astro";
+import { Icon } from 'astro-icon/components'
 
 const navItems = [
   {
@@ -13,23 +15,44 @@ const navItems = [
     href: ""
   },
   {
-    text: "Home",
-    href: "/"
+    text: "About us",
+    href: ""
   },
   {
-    text: "About",
+    text: "Sign up/Log in",
     href: ""
-  }
+  },
 ]
 ---
 
-<header class = "headerbar">
-      <div class = "leftdiv">
-          <div class = "mainlogo"><a href="#">Gym Planner</a></div>
-          <Navbar navItems = {navItems} buttonVariant = "navbar"/>
-      </div>
-      <div class = "sign_in">
-          <Button variant = "navbar" size = "stretch-v">Log in/Register</Button>
-      </div>
+<header class = "header">
+      <Logo height = "5rem"/>
+      <Icon id = "navbar-bnt"class = "menu-icon" name = "burger-menu"/>
+      <nav id = "dropdown-navbar"class = "navbar hidden">
+        <ul class = "">
+            {navItems.map(item => (
+                <li>
+                    <a href={item.href}>{item.text}</a>
+                </li>
+            ))}
+        </ul>
+    </nav>
+      
 </header>
+
+<script>
+  const button = document.querySelector('#navbar-bnt')
+  const dropdown = document.querySelector('.navbar')
+  button?.addEventListener('click', (e) =>{
+    console.log("hi")
+    dropdown?.classList.toggle("hidden")
+  })
+</script>
+
+<style>
+  @import "../assets/header_style.css";
+</style>
+
+
+
  

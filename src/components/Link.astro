@@ -1,0 +1,66 @@
+---
+
+const {text, href, variant, classes, isFilled = true, isBorder = false, ...rest} = Astro.props
+
+---
+
+<a href={href} 
+class:list={[
+    "link",
+    classes,
+    variant,
+    {filled: isFilled, border: isBorder},
+]}
+{...rest}
+>
+    {text}
+</a>
+
+<style>
+.link{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    padding: var(--padding-sm) var(--padding-md);
+    
+    font-size: var(--font-size-sm);
+
+
+}
+
+.primary{
+    color: var(--white);
+}
+
+.primary.filled{
+    background-color: var(--dark-blue);
+}
+
+.primary.border{
+    border: solid  var(--dark-blue);
+}
+
+.primary:hover{
+    filter: brightness(0.8);
+}
+
+.primary:active{
+    filter: brightness(1.2);
+}
+.stretch-width{
+    width: 100%;
+}
+
+@media (min-width: 330px){
+    .link{
+        font-size: var(--font-size-md);
+    }
+}
+@media ( min-width: 550px){
+    .link{
+        font-size: var(--font-size-lg);
+    }
+}
+
+</style>

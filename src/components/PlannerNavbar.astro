@@ -12,7 +12,7 @@ const ulClassName = `ul ul--${variant}`
 <nav class = "planner-navbar">
     <ul class = {ulClassName}>
         {navItems.map(item => (
-            <li>
+            <li class = "planner-navbar-item">
                 <Button variant = {buttonVariant} size = {buttonSize} href = {item.href}> {item.text}</Button>
             </li>
         ))}

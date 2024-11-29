@@ -1,12 +1,31 @@
 ---
-import PlannerNavbar from "../components/PlannerNavbar.astro"
+import Link from "../components/Link.astro"
 const navItems = [
-    {text: "Exercises", href: ""},
-    {text: "Workouts", href: ""},
     {text: "Calendar", href: ""},
+    {text: "Workouts", href: ""},
+    {text: "Exercises", href: "/exercises"},
 ]
 ---
 
 
-<PlannerNavbar buttonVariant = "green-background-gray-border" navItems = {navItems} variant = "border-inline"/>
+<div class="planner-navbar">
+    <ul>
+        {navItems.map(item => (
+            <li>
+                <Link classes = "stretch-width"text = {item.text} href = {item.href} variant = "primary" />
+            </li>
+        ))}
+    </ul>
+</div>
 <slot/>
+
+<style>
+    ul{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        list-style: none;
+
+        border-bottom: solid 2px var(--dark-gray);
+        
+    }
+</style>

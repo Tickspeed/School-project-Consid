@@ -1,28 +1,95 @@
 ---
-import "../assets/exercise_card_style.css"
-const {name = "Pull ups", imageUrl = "/images/pullups.jpg", notes = "Lorem ipsum dolor sit amet", sets = "3", min_reps = "5", max_reps = "10"} = Astro.props
+import { info } from "astro/dist/core/logger/core"
+import Link from "./Link.astro"
+
+const {
+    title, 
+    image, 
+    description,
+    sets,
+    minReps,
+    maxReps,
+    weight,
+    muscleGroup,
+    id
+} = Astro.props
+
 ---
 
-<article>
-    <div class = "card_div">
-        {imageUrl && (
-        <div class = "topimg_div">
-            <img src={imageUrl} alt={"Image of ${name}"}>
-        </div>
-        )}
-        <div class = "bottom_div">
-            <div class = "header_div">
-                <header>{name}</header>
-            </div>
-            <div class = "notes_div">
-                <p>{notes}</p>
-            </div>
-            <div class = "info_div">
-                <ul>
-                    <li><strong>Sets: </strong> {sets}</li>
-                    <li><strong>Reps: </strong> {min_reps} - {max_reps}</li>
-                </ul>
-            </div>
-        </div>
+<div class="exercise-card">
+    {
+        image && <img src={image} alt={title} class = "exercise-image"/>
+    }
+    
+    <div class = "exercise-info">
+        <h2 class = "exercise-name">
+            {title}
+        </h2>
+        <button data-edit-btn-id = {id || ''} >Edit</button>
+        <ul class = "exercise-info-list">
+            <li><strong>Sets: </strong>{sets}</li>
+            <li><strong>Reps: </strong> {minReps} - {maxReps}</li>
+            <li><strong>Muscle Group: </strong>{muscleGroup}</input></li>
+        </ul>
+        
     </div>
-</article>
+    
+</div>
+
+
+
+<style>
+    .exercise-card{
+        width: 100%;
+        background: var(--dark-blue);
+        
+    }
+    .exercise-info{
+        padding: var(--padding-sm);
+
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 6vh 12vh;
+
+        justify-content: center;
+        align-items: center;
+    }
+    .exercise-image{
+        width: 100%;
+        padding: var(--padding-sm) var(--padding-md) 0 var(--padding-md);
+    }
+    h2, p, li{
+        color: var(--white)
+    }
+    h2{
+        font-size: var(--font-size-lg);
+        
+    }
+    
+
+    ul{
+        list-style: none;
+        grid-row: 2;
+    }
+    strong{
+        color: var(--white)
+    }
+    button{
+        background-color: var(--yellow);
+        color: var(--white);
+        border: none;
+        padding: var(--padding-sm) var(--padding-md);
+
+        grid-row: 1 / span 2;
+        grid-column: 2;
+
+        transition: transform 0.1s;
+    }
+    button:hover{
+        filter: brightness(0.8);
+    }
+    button:active{
+    transform: scale(1.05);
+    }
+    
+</style>

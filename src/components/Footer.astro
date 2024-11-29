@@ -1,6 +1,7 @@
 ---
-import "../assets/footer_style.css"
+
 import Navbar from "./Navbar.astro"
+import Logo from "./Logo.astro"
 
 const navItems = [
     {
@@ -25,13 +26,15 @@ const navItems = [
 <footer>
     <div class = "foot_div">
         <div class = "logo">
-            <a href="">Gym Planner</a>
+            <Logo height = "7rem"/>
         </div>
-        <div class = "page_list">
-            <Navbar navItems = {navItems} variant = "vertical" />
-        </div>
+        
         <div class = "right">
 
         </div>
     </div>
 </footer>
+
+<style>
+    @import "../assets/footer_style.css";
+</style>

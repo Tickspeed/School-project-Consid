@@ -1,54 +1,117 @@
+.header{
+    background-color: var(--dark-blue);
+    border: solid 2px var(--dark-gray);
+    padding: var(--padding-sm) 0;
 
-body{
-    margin: 0px;
-   
-}
-
-.headerbar{
     display: flex;
     justify-content: space-between;
-    align-items: stretch;
-    background-color: #1a2b4c;
-    box-shadow: 0px 0px 10px 2px #333333;
-    min-height: 20vh;
+    align-items: center;
+
+    height: 6rem;
+    
+}
+
+
+
+
+.navbar{
+    position: absolute;
     width: 100%;
-}
+    left: 0;
+    top: 6rem;
 
-.leftdiv{
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-}
+    background-color: var(--dark-blue);
 
-.sign_in{
+    max-height: 500px;
+    overflow: hidden;
+    transition: all 0.5s ease-out;
+
+    margin-right: 2vw;
+    
+}
+ul{
+    list-style: none;
+    
     display: flex;
+    flex-direction: column;
     align-items: stretch;
+
+   
+    
+    
     
 }
 
-
-
-
-
-
-
-
-.mainlogo{
+li{
     display: flex;
-    align-items: center;
-    
-    padding-right: 10%;
+    justify-content: stretch;
+    padding: var(--padding-sm) 0;
+
+    border-bottom: solid 2px var(--dark-gray);
 }
 
-.mainlogo a{
-    height: 100%;
+
+a{
+    display: flex;
+    width: 100%;
+    color: var(--white);
     text-decoration: none;
-    white-space: nowrap;
-    font-size: 4vw;
-    color: white;
-    display: flex;
-    align-items: center;
-    padding-left: 10%;
-    padding-right: 10%;
+    font-size: var(--font-size-lg);
+}
+a:active{
+    text-decoration: underline;
 }
 
+.navbar.hidden{
+
+    max-height: 0px;
+}
+
+.menu-icon{
+    margin-right: var(--padding-lg);
+    transform: scale(2);
+    color: var(--white);
+    transition: transform 0.1s;
+}
+
+.menu-icon:active{
+    transform: scale(2.5);
+}
+
+@media (min-width: 750px){
+    .header{
+        height: 8rem;
+    }
+    .navbar{
+        position: static;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        
+    }
+    .navbar.hidden{
+        max-height: 500px;
+    }
+    ul{
+        flex-direction: row;
+        justify-content: end;
+        
+        padding: 0;
+        gap: 2vw;
+    }
+    li{
+        border-bottom: none;
+    }
+    a:hover{
+        text-decoration: underline;
+    }
+    .menu-icon{
+        display: none;
+    }
+}
+
+@media (min-width: 1200px){
+    .header{
+        height: 10rem;
+    }
+}

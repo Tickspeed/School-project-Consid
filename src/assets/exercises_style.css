@@ -1,0 +1,45 @@
+.exercise-page-content{
+    margin: 2% 0;
+    display: flex;
+    flex-direction: row;
+    height: 80vh;
+    justify-content: center;
+    align-items: stretch;
+}
+.exercise-list{
+    width: 40% !important;
+    overflow-y: auto;
+    border: 3px solid #333333; 
+    inline-size: auto;
+
+}
+
+.exercise-list-item{
+    border-bottom: 3px solid #333333;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem;
+    color: #333333;
+    
+}
+
+.exercise-info-ul{
+    list-style-type: none;
+    display: inline-flex;
+}
+
+.exercise-info-ul li{
+    margin-right: 1rem;
+    color: #7c7c7c;
+}
+
+.exercise-details {
+    width: 60%;
+    margin-left: 2%;
+    border: 3px solid #333333;
+    padding: 1rem;
+    overflow-y: auto;
+    display: none; /* Initially hidden */
+}
+
+

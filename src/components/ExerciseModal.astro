@@ -1,0 +1,58 @@
+---
+const {
+    title = "Testexercise", 
+    image, 
+    description,
+    sets,
+    minReps,
+    maxReps,
+    weight,
+    muscleGroup,
+    id
+} = Astro.props
+---
+
+<form class = "exercise-modal" method = "POST">
+    <img src={image} alt={title}>
+    <input class="title" type="text" placeholder="Title">
+    <textarea name="description" id="description-text" placeholder="Description">{description}</textarea>
+    
+        <strong>Sets: </strong><input class = "number-input" type="number">{sets}</input>
+        <strong>Reps: </strong><div><input class = "number-input" type="number">{minReps}</input> - <input class = "number-input" type="number">{maxReps}</input></div>
+        <strong>Muscle Group: </strong><input type="text">{muscleGroup}</input></input>
+    
+    <button>Save</button>
+    <button>Cancel</button>
+</form>
+
+<style>
+    .exercise-modal{
+        background-color: var(--white);
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        gap: 1vh;
+        padding: 1vh;
+
+    }
+
+    img{
+        grid-column: 1 / 3;
+    }
+    
+    .title{
+        grid-column: 1 / 3;
+        text-align: center;
+
+        font-size: var(--font-size-lg);
+        padding: var(--padding-sm);
+    }
+    textarea{
+        grid-column: 1 / 3;
+    }
+    .number-input{
+        width: 20%;
+        height: 3vh;
+    }
+    
+</style>

@@ -1,7 +1,26 @@
-1a2b4c
-2ecc71
-dedede
-ffffff
-333333
-f39c12
-e74c3c
+1a2b4c  blue
+2ecc71  green
+dedede  light gray
+ffffff  white
+333333  dark gray
+f39c12  orange
+e74c3c  red
+
+Header:
+Background: Dark Blue (#1A2B4C)
+Text: White (#FFFFFF)
+Buttons: Bright Green (#2ECC71) for important actions, Light Gray (#F4F4F4) for secondary actions
+
+Main Content Area:
+Background: Light Gray (#F4F4F4) or White (#FFFFFF)
+Text: Dark Gray (#333333)
+Headings: Dark Blue (#1A2B4C)
+
+Buttons:
+Primary Action: Bright Green (#2ECC71)
+Secondary Action: Dark Blue (#1A2B4C)
+Hover States: Slightly darker versions of the button colors
+
+Borders:
+Light borders: Light Gray (#E0E0E0)
+Emphasis borders: Bright Green (#2ECC71) or Dark Blue (#1A2B4C)

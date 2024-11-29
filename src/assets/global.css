@@ -1,0 +1,43 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root{
+    -webkit-tap-highlight-color: transparent;
+    
+    --dark-blue: #1a2b4c;
+    --purple: #4a1d25;
+    --yellow: #c6a94d;
+    --light-green: #2ecc71;
+    --light-gray: #dedede;
+    --white: #ffffff;
+    --dark-gray: #333333;
+
+    
+
+    --base-font-size: 16px;
+    
+    --font-size-xs: clamp(0.75rem, 2vw, 0.875rem);     /* 12px - 14px */
+    --font-size-sm: clamp(0.875rem, 2vw, 1rem);        /* 14px - 16px */
+    --font-size-base: clamp(1rem, 2.5vw, 1.125rem);    /* 16px - 18px */
+    --font-size-md: clamp(1.125rem, 3vw, 1.25rem);     /* 18px - 20px */
+    --font-size-lg: clamp(1.25rem, 3.5vw, 1.5rem);     /* 20px - 24px */
+    --font-size-xl: clamp(1.5rem, 4vw, 1.875rem);      /* 24px - 30px */
+    --font-size-2xl: clamp(1.875rem, 5vw, 2.25rem);    /* 30px - 36px */
+    --font-size-3xl: clamp(2.25rem, 6vw, 3rem);        /* 36px - 48px */
+
+    --padding-sm: clamp(0.5rem, 2vw, 1rem);
+    --padding-md: clamp(1rem, 4vw, 2rem);
+    --padding-lg: clamp(2rem, 6vw, 4rem);
+    --padding-xl: clamp(3rem, 8vw, 6rem);
+}
+
+@media (min-width: 600px){
+    :root{
+        --base-font-size: 32px;
+    }
+}

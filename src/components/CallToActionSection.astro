@@ -1,15 +1,15 @@
 ---
-const{title, paragraph, buttonText, variant} = Astro.props;
+const{title, paragraph, buttonText, variant, href} = Astro.props;
 
 const CTAsectionClass = `CTAsection CTAsection--${variant}`;
 
-import Button from "./Button.astro";
+import Link from "./Link.astro";
 ---
 
 <article class = {CTAsectionClass}>
     <h2>{title}</h2>
     <p>{paragraph}</p>
-    <Button size = "large">{buttonText}</Button>
+    <Link text = {buttonText} href = {href} variant = "primary"></Link>
 </article>
 
 <style>
@@ -19,7 +19,9 @@ import Button from "./Button.astro";
     flex-direction: column;
     align-items: start;
     justify-content: center;
-    padding: 4vw;
+    gap: var(--padding-md);
+
+    padding: var(--padding-md);
     min-height: 30vh;
     margin: 2vh 0px;
 }
@@ -29,10 +31,13 @@ import Button from "./Button.astro";
     
 }
 
-.CTAsection--green h2{
-    color: #ffffff;
-    font-size: 2rem;
-    margin: 0;
+h2{
+    font-size: var(--font-size-2xl);
+    color: var(--white);
+}
+
+p{
+    font-size: var(--font-size-md);
 }
 
 .CTAsection--green p{
@@ -42,12 +47,6 @@ import Button from "./Button.astro";
 .CTAsection--light-blue{
     background-color: #3498db;
     
-}
-
-.CTAsection--light-blue h2{
-    color: #ffffff;
-    font-size: 2rem;
-    margin: 0;
 }
 
 .CTAsection--light-blue p{
