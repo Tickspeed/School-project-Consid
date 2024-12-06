@@ -13,7 +13,7 @@ const {
 ---
 
 <form class = "exercise-modal" method = "POST">
-    <img src={image} alt={title}>
+    {image && <img src={image} alt={title}>}
     <input class="title" type="text" placeholder="Title">
     <textarea name="description" id="description-text" placeholder="Description">{description}</textarea>
     
@@ -27,7 +27,7 @@ const {
 
 <style>
     .exercise-modal{
-        background-color: var(--white);
+        background-color: var(--light-gray);
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-content: center;
@@ -53,6 +53,21 @@ const {
     .number-input{
         width: 20%;
         height: 3vh;
+        align-self: center;
+    }
+    input, textarea{
+        border: solid 2px var(--dark-gray);
+        background-color: var(--light-gray);
+    }
+    button{
+        background-color: var(--dark-blue);
+        color: var(--white);
+        border: none;
+
+        padding: var(--padding-sm) 0;
+    }
+    button:hover{
+        filter: brightness(0.8);
     }
     
 </style>
