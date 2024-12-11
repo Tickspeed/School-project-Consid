@@ -5,7 +5,6 @@ import ExerciseCard from "../components/Exercise-card.astro";
 import ExerciseModal from "../components/ExerciseModal.astro";
 
 
-const exercises = [];
 
 ---
 
@@ -14,18 +13,7 @@ const exercises = [];
         <div class = "content-box">
             <button id = "add-bnt">Add new</button>
             <div class="exercises-grid">
-                {exercises.map(item => (
-                    <ExerciseCard
-                    title = {item.title}
-                    image = {item.image}
-                    sets = {item.sets}
-                    minReps = {item.minReps}
-                    maxReps = {item.maxReps}
-                    weight = {item.weight}
-                    description = {item.description}
-                    id = {item.id}
-                    ></ExerciseCard>
-                ))}
+                
             </div>
         </div>
         
@@ -36,23 +24,71 @@ const exercises = [];
 </MainLayout>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const modal = document.querySelector('dialog')
-        const editButtons = document.querySelectorAll('[data-edit-btn-id]')
-        const addButton = document.querySelector('[add-bnt]')
-        const loadModal = (e) => {
-            modal?.showModal();
-            if(e.target.dataset.addBnt){
-                
+import { string } from "astro:schema";
+
+const exercises = [];
+for(let i; i < localStorage.length; i++){
+    const key = localStorage.key(i);
+    
+    if(key.search("exercises")){
+        const data = JSON.parse(localStorage.getItem(key))
+        exercises.push(
+            {
+                id: key,
+                title: data.title,
+                image: data.image,
+                sets: data.sets,
+                minReps: data.minReps,
+                maxReps: data.maxReps,
+                weight: data.weight,
+                description: data.description,
             }
+        )
+    }
+}
+const exercisesGrid = document.querySelector(".exercises-grid")
+exercisesGrid.innerHTML = exercises.map(item => 
+    `<ExerciseCard
+    title = {item.title}
+    image = {item.image}
+    sets = {item.sets}
+    minReps = {item.minReps}
+    maxReps = {item.maxReps}
+    weight = {item.weight}
+    description = {item.description}
+    id = {item.id}
+    ></ExerciseCard>`
+).join('');
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.querySelector('dialog')
+    const editButtons = document.querySelectorAll('[data-edit-btn-id]')
+    const addButton = document.querySelector('#add-bnt')
+    const loadModal = (e) => {
+        modal?.showModal();
+        if(e.target.id == "add-bnt"){
+            const saveBtn = modal.querySelector('#save-btn')
+            
+            saveBtn.setAttribute('data-exercise-id', generateNewId())
+            console.log(saveBtn)
         }
-        editButtons.forEach(editButton => {
-            editButton.addEventListener('click', loadModal)
-        })
-
         
+    }
+    editButtons.forEach(editButton => {
+        editButton.addEventListener('click', loadModal)
+    })
+    addButton.addEventListener('click', loadModal)
 
-    });
+    
+
+});
+
+function generateNewId() {
+    const currentTime = Date.now();
+    const randomNumber = Math.floor(Math.random() * 1e6)
+    
+    return `${currentTime}-${randomNumber}`;
+}
     
 </script>
 
@@ -78,8 +114,8 @@ const exercises = [];
         transform: translate(-50%, -50%);
 
         
-
-        border: solid 2px var(--dark-gray);
+        padding: 0%;
+        border: none;
     }
     .content-box{
         margin: 0 5vw;

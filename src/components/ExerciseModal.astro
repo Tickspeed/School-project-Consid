@@ -12,28 +12,52 @@ const {
 } = Astro.props
 ---
 
-<form class = "exercise-modal" method = "POST">
+<div class = "exercise-modal">
     {image && <img src={image} alt={title}>}
     <input class="title" type="text" placeholder="Title">
     <textarea name="description" id="description-text" placeholder="Description">{description}</textarea>
     
-        <strong>Sets: </strong><input class = "number-input" type="number">{sets}</input>
-        <strong>Reps: </strong><div><input class = "number-input" type="number">{minReps}</input> - <input class = "number-input" type="number">{maxReps}</input></div>
-        <strong>Muscle Group: </strong><input type="text">{muscleGroup}</input></input>
+        <strong>Sets: </strong><input id = "sets" class = "number-input" type="number">{sets}</input>
+        <strong>Reps: </strong><div><input id = "min-reps" class = "number-input" type="number">{minReps}</input> - <input id = "max-reps" class = "number-input" type="number">{maxReps}</input></div>
+        <strong>Muscle Group: </strong><input id = "muscle" type="text">{muscleGroup}</input></input>
     
-    <button>Save</button>
-    <button>Cancel</button>
-</form>
+    <button data-exercise-id id = "save-btn">Save</button>
+    <button id = "cancel-btn">Cancel</button>
+</div>
+
+<script>
+const titleInput = document.querySelector('.title');
+const descriptionText = document.querySelector('#description-text');
+const setsInput = document.querySelector('#sets');
+const minReps = document.querySelector('#min-reps');
+const maxReps = document.querySelector('#max-reps');
+const muscleInput = document.querySelector('#muscle')
+
+
+const cancelBtn = document.querySelector('#cancel-btn')
+const saveBtn = document.querySelector('#save-btn')
+const modal = cancelBtn.closest('dialog')
+cancelBtn.addEventListener('click', (e) =>{
+    modal.close()
+})
+saveBtn.addEventListener('click', (e) => {
+    
+})
+</script>
 
 <style>
     .exercise-modal{
+        height: 100%;
+        width: 100%;
         background-color: var(--light-gray);
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         justify-content: center;
         gap: 1vh;
-        padding: 1vh;
+        padding: 2vh;
 
+        border: solid 4px var(--dark-gray);
+        
     }
 
     img{
