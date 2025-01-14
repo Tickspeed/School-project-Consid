@@ -35,6 +35,7 @@ const loadData = ()=>{
 
 
 export default function WorkoutComponent(){
+    
     return(
         <ItemGrid
         emptyItem = {emptyItem}
