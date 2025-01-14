@@ -1,0 +1,49 @@
+.card{
+    width: 100%;
+    background: var(--dark-blue);
+    padding: var(--padding-sm);
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 6vh 12vh;
+
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+h2, p, li{
+    color: var(--white)
+}
+h2{
+    font-size: var(--font-size-lg);
+    
+}
+
+
+ul{
+    list-style: none;
+    grid-row: 2;
+}
+.cardInfo strong{
+    color: var(--white)
+}
+.cardBtn{
+    background-color: var(--light-green);
+    color: var(--white);
+    font-size: var(--font-size-md);
+    border: none;
+    padding: var(--padding-sm) var(--padding-sm);
+
+    grid-row: 2 / span 1;
+    grid-column: 2;
+
+    transition: transform 0.1s;
+}
+.cardBtn:hover{
+    filter: brightness(0.8);
+}
+.cardBtn:active{
+transform: scale(1.05);
+}

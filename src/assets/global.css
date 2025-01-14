@@ -29,6 +29,8 @@
     --font-size-xl: clamp(1.5rem, 4vw, 1.875rem);      /* 24px - 30px */
     --font-size-2xl: clamp(1.875rem, 5vw, 2.25rem);    /* 30px - 36px */
     --font-size-3xl: clamp(2.25rem, 6vw, 3rem);        /* 36px - 48px */
+    --font-size-4xl: clamp(3rem, 7vw, 3.5rem);
+    --font-size-5xl: clamp(4rem, 8.5vw, 4.5rem);
 
     --padding-sm: clamp(0.5rem, 2vw, 1rem);
     --padding-md: clamp(1rem, 4vw, 2rem);

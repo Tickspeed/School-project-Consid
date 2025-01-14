@@ -1,9 +1,11 @@
 {
-    "compilerOptions": {
-      "allowJs": true,
-      "checkJs": false,
-      "noEmit": true,
-      "skipLibCheck": true,
-      "strict": false
-    }
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": false,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
+}

@@ -1,31 +1,24 @@
+
 ---
-const {
-    title = "Testexercise", 
-    image, 
-    description,
-    sets,
-    minReps,
-    maxReps,
-    weight,
-    muscleGroup,
-    id
-} = Astro.props
+const {exercise} = Astro.props
 ---
 
+
 <div class = "exercise-modal">
-    {image && <img src={image} alt={title}>}
-    <input class="title" type="text" placeholder="Title">
-    <textarea name="description" id="description-text" placeholder="Description">{description}</textarea>
     
-        <strong>Sets: </strong><input id = "sets" class = "number-input" type="number">{sets}</input>
-        <strong>Reps: </strong><div><input id = "min-reps" class = "number-input" type="number">{minReps}</input> - <input id = "max-reps" class = "number-input" type="number">{maxReps}</input></div>
-        <strong>Muscle Group: </strong><input id = "muscle" type="text">{muscleGroup}</input></input>
+    <input id = "title" class="title" type="text" placeholder="Title">
+    <textarea name="description" id="description-text" placeholder="Description">{exercise.description}</textarea>
     
-    <button data-exercise-id id = "save-btn">Save</button>
-    <button id = "cancel-btn">Cancel</button>
+        <strong>Sets: </strong><input id = "sets" class = "number-input" type="number">{exercise.sets}</input>
+        <strong>Reps: </strong><div><input id = "min-reps" class = "number-input" type="number">{exercise.minReps}</input> - <input id = "max-reps" class = "number-input" type="number">{exercise.maxReps}</input></div>
+        <strong>Muscle Group: </strong><input id = "muscle" type="text">{exercise.muscleGroup}</input></input>
+    
+    <button class="blue" data-exercise-id id = "save-btn">Save</button>
+    <button class="blue" id = "cancel-btn">Cancel</button>
 </div>
 
 <script>
+// @ts-nocheck
 const titleInput = document.querySelector('.title');
 const descriptionText = document.querySelector('#description-text');
 const setsInput = document.querySelector('#sets');
@@ -34,14 +27,27 @@ const maxReps = document.querySelector('#max-reps');
 const muscleInput = document.querySelector('#muscle')
 
 
+
 const cancelBtn = document.querySelector('#cancel-btn')
 const saveBtn = document.querySelector('#save-btn')
 const modal = cancelBtn.closest('dialog')
 cancelBtn.addEventListener('click', (e) =>{
     modal.close()
 })
+
 saveBtn.addEventListener('click', (e) => {
     
+    const entry = {
+        title: titleInput.value,
+        description : descriptionText.value,
+        sets: setsInput.value,
+        minReps: minReps.value,
+        maxReps: maxReps.value,
+        muscles: muscleInput.value,
+    }
+    const id = saveBtn.dataset.exerciseId
+    console.log(id)
+    localStorage.setItem(id, JSON.stringify(entry))
 })
 </script>
 
@@ -83,7 +89,7 @@ saveBtn.addEventListener('click', (e) => {
         border: solid 2px var(--dark-gray);
         background-color: var(--light-gray);
     }
-    button{
+    button.blue{
         background-color: var(--dark-blue);
         color: var(--white);
         border: none;
@@ -93,5 +99,9 @@ saveBtn.addEventListener('click', (e) => {
     button:hover{
         filter: brightness(0.8);
     }
-    
+    #image-button{
+        grid-column: 1/3;
+        justify-self: center;
+        width: 30%;
+    }
 </style>

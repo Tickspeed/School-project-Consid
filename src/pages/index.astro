@@ -3,38 +3,51 @@
 
 
 import MainLayout from "../layouts/MainLayout.astro"
-import CallToActionSection from "../components/CallToActionSection.astro"
-import Link from "../components/Link.astro"
-import Logo from "../components/Logo.astro"
+import Button from "../components/Button.astro"
 
 ---
 <MainLayout title = "Home">
-    
-    <div class = "home-content">
-        
-        <CallToActionSection 
-            title = "Make your workout easier!" 
-            paragraph = "Are you overwhelmed by the amount of information you have to keep track of when working out? Simplify your planning with our workout planner!" 
-            buttonText = "Go to Planner"
-            href = "/planner"
-            variant = "green"/>
-
-        <section class = "section--custom1">
-            <h2>"We are what we repeatedly do. Excellence then is not an act but a habit."- <span class = "home-content--quote-author">Aristotle</span></h2>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos.</p>
+    <div class = "content-box">
+        <section class="first-section">
+            <h1>Build Your Perfect Workout</h1>
+            <p>Design your fitness journey, your way. 
+                No pre-made plans, no paid subscriptions – 
+                just the tools you need to create workouts 
+                that actually work for you.</p>
         </section>
-
-        <CallToActionSection 
-            title = "Calculators to show how much and when to eat" 
-            paragraph = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos." 
-            buttonText = "Go to calculators"
-            variant = "light-blue"/>
-        
+        <section class = "list-section">
+            <h2>Your Workout, Your Rules</h2>
+            <p>Tired of following someone else's workout plan? We get it. 
+                That's why we built MR Gymplanner – a free platform where 
+                you can:</p>
+            <ul>
+                <li>Design custom exercises from scratch </li>
+                <li>Organize exercises into workouts</li>
+                <li>Schedule your workouts in the calendar</li>
+                <li>Save unlimited workout templates </li>
+                <li>Share routines with friends</li>
+            </ul>
+        </section>
+        <section class = "cta-section">
+            <h2>Simple. Free. Forever.</h2>
+            <p>No credit card, no subscription, no catch. 
+                We're here to help you take control of your 
+                fitness journey without the premium price tag.</p>
+            <Button>Create your first workout</Button>
+            <p>Join thousands of others who are crafting their perfect workouts. 
+                Because nobody knows your fitness goals better than you do.
+                Built by gym enthusiasts, for gym enthusiasts</p>
+        </section>
     </div>
 </MainLayout>
 
 <style>
-   @import  "../assets/index_style.css"
+   .first-section{
+    text-align: center;
+   }
+   .first-section h1{
+    font-size: 8rem;
+   }
 </style>
 
 

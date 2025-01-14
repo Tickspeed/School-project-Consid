@@ -1,0 +1,11 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+import PlannerLayout from "../layouts/PlannerLayout.astro";
+import WorkoutComponent from "../components/WorkoutComponent";
+---
+
+<MainLayout>
+    <PlannerLayout>
+        <WorkoutComponent client:load/>
+    </PlannerLayout>
+</MainLayout>

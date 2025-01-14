@@ -2,12 +2,13 @@
     background-color: var(--dark-blue);
     border: solid 2px var(--dark-gray);
     padding: var(--padding-sm) 0;
+    
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    height: 6rem;
+    height: 3rem;
     
 }
 
@@ -18,7 +19,7 @@
     position: absolute;
     width: 100%;
     left: 0;
-    top: 6rem;
+    top: 3rem;
 
     background-color: var(--dark-blue);
 
@@ -80,7 +81,7 @@ a:active{
 
 @media (min-width: 750px){
     .header{
-        height: 8rem;
+        height: 6rem;
     }
     .navbar{
         position: static;
@@ -112,6 +113,6 @@ a:active{
 
 @media (min-width: 1200px){
     .header{
-        height: 10rem;
+        height: 7rem;
     }
 }

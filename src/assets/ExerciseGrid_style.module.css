@@ -1,0 +1,60 @@
+.grid{
+    padding: 0px var(--padding-sm);
+    
+
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 3vh;
+
+    overflow: auto;
+    max-height: 80vh;
+
+    border: solid 2px var(--dark-gray);
+
+    background-color: var(--white);
+}
+
+@media (min-width: 500px){
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 900px){
+    .grid{
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.modal{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    
+    padding: 0%;
+    border: none;
+}
+
+.addBtn{
+    margin: 1vh;
+}
+
+.cardBtn{
+    background-color: var(--light-green);
+    color: var(--white);
+    font-size: var(--font-size-md);
+    border: none;
+    padding: var(--padding-sm) var(--padding-sm);
+
+    grid-row: 2 / span 1;
+    grid-column: 2;
+
+    transition: transform 0.1s;
+}
+.cardBtn:hover{
+    filter: brightness(0.8);
+}
+.cardBtn:active{
+transform: scale(1.05);
+}

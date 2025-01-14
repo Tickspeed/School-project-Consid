@@ -14,7 +14,16 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "astro": "^4.15.9",
-    "astro-icon": "^1.1.2"
-  }
+    "@astrojs/react": "^4.1.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "astro": "^5.1.1",
+    "astro-icon": "^1.1.2",
+    "prop-types": "^15.8.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "svelte": "^5.16.0",
+    "typescript": "^5.7.2"
+  },
+  "type": "module"
 }
