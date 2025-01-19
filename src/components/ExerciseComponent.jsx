@@ -15,25 +15,18 @@ function generateNewExerciseId() {
     const currentTime = Date.now();
     const randomNumber = Math.floor(Math.random() * 1e6)
     
-    return `exercise-${currentTime}-${randomNumber}`;
+    return `data-exercise-${currentTime}-${randomNumber}`;
 }
 
 
-const loadData = ()=>{
-    const dataArray = []
-    for(let i = 0; i < localStorage.length; i++){
-        const key = localStorage.key(i);
-        if(key?.startsWith("exercise")){
-            const data = JSON.parse(localStorage.getItem(key))
-            dataArray.push(
-                {
-                    id: key,
-                    ...data
-                }
-            )
+const sortData = (allData)=>{
+    const returnData = []
+    for (let i = 0; i < allData.length; i++ ){
+        if (allData[i].id.startsWith("data-exercise")){
+            returnData.push(allData[i])
         }
     }
-    return dataArray
+    return returnData
 }
 
 
@@ -44,7 +37,7 @@ export default function ExerciseComponent(){
             ModalComponent={ExerciseModal} 
             CardComponent={ExerciseCard} 
             emptyItem={emptyItem} 
-            loadData={loadData}
+            sortData={sortData}
             generateNewId={generateNewExerciseId}
         />
     )

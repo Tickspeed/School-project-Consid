@@ -12,24 +12,38 @@ import styles from "../assets/ExerciseGrid_style.module.css"
 
 
 
-export default function ItemGrid({loadData, emptyItem, CardComponent, ModalComponent, generateNewId}){
+export default function ItemGrid({sortData, emptyItem, CardComponent, ModalComponent, generateNewId}){
+    let rawData = []
     const [items, setItems]= useState([]);
     const [editingItem, setEditingItem] = useState({})
-
     
-
+    
       
     
     useEffect(()=>{
         loadItems()
+        
         window.addEventListener('storage', loadItems);
         return () => {window.removeEventListener('storage', loadItems)}
     }, [])
 
     const loadItems = () => {
-        
-        const items = loadData();
-        
+        const dataArray = []
+        for(let i = 0; i < localStorage.length; i++){
+            const key = localStorage.key(i);
+            if(key?.startsWith("data")){
+                const data = JSON.parse(localStorage.getItem(key))
+                dataArray.push(
+                    {
+                        id: key,
+                        ...data
+                    }
+                )
+            }
+        }
+
+        const items = sortData(dataArray);
+        console.log(items)
         setItems(items)
     }
 
@@ -66,12 +80,13 @@ export default function ItemGrid({loadData, emptyItem, CardComponent, ModalCompo
     <div className="container">
         <button className = {`${styles.addBtn} ${styles.cardBtn}`} onClick={handleAdd}>Add new</button>
         <div className={styles.grid}>
-            {items.map(item => (
-            <CardComponent
-                item={item}
-                onEdit={handleEdit}
-            />
-            ))}
+        {items.length > 0 ? (
+        items.map((item) => (
+            <CardComponent item={item} onEdit={handleEdit} />
+        ))
+    ) : (
+        <p>No workouts available. Click "Add new" to create one!</p>
+    )}
         </div>
         <dialog className={styles.modal} id = "modal">
             <ModalComponent 
@@ -88,7 +103,7 @@ export default function ItemGrid({loadData, emptyItem, CardComponent, ModalCompo
 }
 
 ItemGrid.propTypes = {
-    loadData: PropTypes.func,
+    sortData: PropTypes.func,
     emptyItem: PropTypes.object,
     CardComponent: PropTypes.elementType,
     ModalComponent: PropTypes.elementType,

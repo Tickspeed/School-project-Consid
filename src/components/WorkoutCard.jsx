@@ -8,7 +8,7 @@ export default function WorkoutCard({workout, onEdit}){
                 onEdit(workout.id)
             }}>Edit</button>
             <ul>
-                {workout.exercises.map((exercise)=>{
+                {workout && workout.exercises.map((exercise)=>{
                     <li>{exercise.name}</li>
                 })}
             </ul>

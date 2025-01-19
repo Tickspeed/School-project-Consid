@@ -37,7 +37,7 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
                 <h3>{editingItem.title}</h3>
                 
                 <ul>
-                    {editingItem.exercises.map((exercise)=>{
+                    {editingItem.exercises && editingItem.exercises.map((exercise)=>{
                         <li>{exercise}<button 
                         onClick={()=>{removeExercise(exercise)}}>Remove</button></li>
                     })}
