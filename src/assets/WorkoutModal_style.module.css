@@ -1,0 +1,24 @@
+
+.modal{
+    height: 50vh;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.panel{
+    background-color: var(--dark-blue);
+    border: solid 2px black;
+}
+
+.addList{
+    height: 100%;
+    background-color: var(--dark-blue);
+}
+
+
+.addList li{
+    margin-bottom: 1vw;
+    background-color: var(--light-green);
+    
+}
