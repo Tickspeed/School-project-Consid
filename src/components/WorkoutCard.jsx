@@ -1,16 +1,17 @@
+import styles from "../assets/WorkoutCard_style.module.css"
 
-export default function WorkoutCard({workout, onEdit}){
-    
+export default function WorkoutCard({item, onEdit}){
+    console.log(item)
     return(
-        <div>
-            <h2>{workout.title}</h2>
+        <div className = {styles.card}>
+            <h2>{item.title}</h2>
             <button onClick={(e)=>{
-                onEdit(workout.id)
+                onEdit(item.id)
             }}>Edit</button>
             <ul>
-                {workout && workout.exercises.map((exercise)=>{
-                    <li>{exercise.name}</li>
-                })}
+                {item.exercises.map((exercise)=>(
+                    <li>{exercise.title}</li>
+                ))}
             </ul>
         </div>
     )

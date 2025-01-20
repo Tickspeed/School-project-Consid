@@ -13,7 +13,8 @@ import styles from "../assets/ExerciseGrid_style.module.css"
 
 
 export default function ItemGrid({sortData, emptyItem, CardComponent, ModalComponent, generateNewId}){
-    let rawData = []
+    //need rawData for WorkoutModal to load exercises list
+    const [rawData, setRawData] = useState([])
     const [items, setItems]= useState([]);
     const [editingItem, setEditingItem] = useState({})
     
@@ -41,19 +42,22 @@ export default function ItemGrid({sortData, emptyItem, CardComponent, ModalCompo
                 )
             }
         }
-
+        
+        setRawData(dataArray)
+      
         const items = sortData(dataArray);
-        console.log(items)
+        
         setItems(items)
     }
 
     const handleAdd = () => {
-        console.log("hello")
+        
         const modal = document.querySelector('#modal')
         const saveBtn = document.querySelector('#save-btn')
         
         setEditingItem(emptyItem);
         modal.showModal();
+        
     }
 
     const handleEdit = (id) => {
@@ -92,7 +96,7 @@ export default function ItemGrid({sortData, emptyItem, CardComponent, ModalCompo
             <ModalComponent 
             setEditingItem = {setEditingItem} 
             editingItem={editingItem} 
-            data={items} 
+            data={rawData} 
             onClose={handleClose} 
             onSave={handleSave} />
         </dialog>

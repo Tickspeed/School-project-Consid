@@ -3,7 +3,7 @@ import WorkoutModal from "./WorkoutModal";
 import ItemGrid from "./ItemGrid";
 
 const emptyItem = {
-    id: "",
+    
     title: "",
     exercises: []
 }
@@ -12,14 +12,14 @@ function generateNewWorkoutId() {
     const currentTime = Date.now();
     const randomNumber = Math.floor(Math.random() * 1e6)
     
-    return `workout-${currentTime}-${randomNumber}`;
+    return `data-workout-${currentTime}-${randomNumber}`;
 }
 
 const loadData = ()=>{
     const dataArray = []
     for(let i = 0; i < localStorage.length; i++){
         const key = localStorage.key(i);
-        if(key?.startsWith("workout")){
+        if(key?.startsWith("data-workout")){
             const data = JSON.parse(localStorage.getItem(key))
             dataArray.push(
                 {
@@ -41,7 +41,7 @@ export default function WorkoutComponent(){
         emptyItem = {emptyItem}
         CardComponent={WorkoutCard}
         ModalComponent={WorkoutModal}
-        loadData={loadData}
+        sortData={loadData}
         generateNewId={generateNewWorkoutId}
         />
     )
