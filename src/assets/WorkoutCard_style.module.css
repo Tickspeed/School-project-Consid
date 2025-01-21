@@ -1,3 +1,32 @@
 .card{
     background-color: var(--dark-blue);
 }
+
+.card h2{
+    font-size: var(--font-size-xl);
+}
+
+.card li{
+    padding: 1vh 0.5vw;
+    border-bottom: solid 2px var(--light-green);
+
+    font-size: medium;
+}
+
+.cardBtn{
+    background-color: var(--light-green);
+    color: var(--white);
+    font-size: var(--font-size-md);
+    border: none;
+    padding: 1vh var(--padding-sm);
+
+    
+
+    transition: transform 0.1s;
+}
+.cardBtn:hover{
+    filter: brightness(0.8);
+}
+.cardBtn:active{
+transform: scale(1.05);
+}

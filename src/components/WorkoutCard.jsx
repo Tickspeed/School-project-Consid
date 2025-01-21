@@ -5,7 +5,7 @@ export default function WorkoutCard({item, onEdit}){
     return(
         <div className = {styles.card}>
             <h2>{item.title}</h2>
-            <button onClick={(e)=>{
+            <button className={styles.cardBtn} onClick={(e)=>{
                 onEdit(item.id)
             }}>Edit</button>
             <ul>

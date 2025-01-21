@@ -1,9 +1,10 @@
 import WorkoutCard from "./WorkoutCard";
 import WorkoutModal from "./WorkoutModal";
 import ItemGrid from "./ItemGrid";
+import styles from "../assets/WorkoutGrid_styles.module.css"
 
 const emptyItem = {
-    
+    id: "",
     title: "",
     exercises: []
 }
@@ -43,6 +44,7 @@ export default function WorkoutComponent(){
         ModalComponent={WorkoutModal}
         sortData={loadData}
         generateNewId={generateNewWorkoutId}
+        styles={styles}
         />
     )
 }

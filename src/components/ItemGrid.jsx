@@ -5,14 +5,14 @@ import ExerciseModal from "../components/ExerciseModal";
 import ExerciseCard from "../components/ExerciseCard";
 
 
-import styles from "../assets/ExerciseGrid_style.module.css"
 
 
 
 
 
 
-export default function ItemGrid({sortData, emptyItem, CardComponent, ModalComponent, generateNewId}){
+
+export default function ItemGrid({sortData, emptyItem, CardComponent, ModalComponent, generateNewId, styles}){
     //need rawData for WorkoutModal to load exercises list
     const [rawData, setRawData] = useState([])
     const [items, setItems]= useState([]);

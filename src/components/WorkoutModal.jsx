@@ -7,7 +7,7 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
 
     useEffect(()=>{
         titleInput.current.value = editingItem.title
-    }, [editingItem])
+    }, [editingItem.title])
 
     const sortData = (allData)=>{
         const returnData = []
@@ -62,7 +62,7 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
                 <ul>
                     {editingItem.exercises && editingItem.exercises.map((exercise)=>(
                         <li key={exercise.id}>
-                            {exercise.title}<button onClick={()=>{removeExercise(exercise)}}>Remove</button>
+                            {exercise.title}<button className={styles.remvoeListBtn} onClick={()=>{removeExercise(exercise)}}>Remove</button>
                         </li>
                     ))}
                 </ul>
@@ -71,8 +71,9 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
                     e.preventDefault();
                     
                     onSave(editingItem.id, {
-                        ...editingItem,
-                        title: titleInput.current.value
+                        exercises: editingItem.exercises,
+                        title: titleInput.current.value,
+                        id: editingItem.id
                     })
                     titleInput.current.value = ""
                     onClose()
@@ -85,7 +86,7 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
                 <ul>
                     {allExercises.map((exercise)=>(
                         <li key={exercise.id}>
-                            {exercise.title}<button onClick={()=>addExercise(exercise)}>Add</button>
+                            {exercise.title}<button className={styles.listAddBtn} onClick={()=>addExercise(exercise)}>Add</button>
                         </li>
                     ))}
                 </ul>

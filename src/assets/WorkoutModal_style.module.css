@@ -1,24 +1,66 @@
 
 .modal{
-    height: 50vh;
-
+    margin: 0;
+    
+    height: 70vh;
+    width: 100%;
+    
+   
+    
     display: grid;
     grid-template-columns: 1fr 1fr;
+    background-color: var(--white);
+    
+
+    
 }
 
+
+
 .panel{
+    border-right: solid 0.3vw black;
+    
+}
+
+.panel input{
+    width: 100%;
+    padding: 1vh;
+    margin: 1vh 0;
+}
+
+li{
+    display: flex;
+    justify-content: space-between;
     background-color: var(--dark-blue);
-    border: solid 2px black;
+
+    border-bottom: solid 2px white;
+
+    align-items: center;
 }
 
 .addList{
+    width: 100%;
     height: 100%;
-    background-color: var(--dark-blue);
+}
+
+.addList ul{
+    
+    overflow-y: auto;
+    height: 100%;
+    width: inherit;
+    
 }
 
 
-.addList li{
-    margin-bottom: 1vw;
+
+
+
+
+
+
+button{
     background-color: var(--light-green);
-    
+    border: none;
+    color: white;
+    padding: 1.5vh 1vh;
 }

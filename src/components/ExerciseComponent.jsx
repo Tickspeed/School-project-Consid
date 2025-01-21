@@ -1,6 +1,7 @@
 import ItemGrid from "./ItemGrid";
 import ExerciseCard from "./ExerciseCard";
 import ExerciseModal from "./ExerciseModal";
+import styles from "../assets/ExerciseGrid_style.module.css"
 
 const emptyItem = {
     title: "",
@@ -39,6 +40,7 @@ export default function ExerciseComponent(){
             emptyItem={emptyItem} 
             sortData={sortData}
             generateNewId={generateNewExerciseId}
+            styles = {styles}
         />
     )
 }
