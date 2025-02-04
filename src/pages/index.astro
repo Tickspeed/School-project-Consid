@@ -5,49 +5,119 @@
 import MainLayout from "../layouts/MainLayout.astro"
 import Button from "../components/Button.astro"
 
+const {
+    header1 = "Build Your Perfect Workout",
+    paragraph1 = "Plan unlimited amount of workout routines without any subscriptions!",
+    paragraph2 = `
+    Every serious gym goer knows that it's easy to forget your planned exercises.
+
+    And have already tried to search for a replacement from the default notes app on your phone.
+    `
+} = Astro.props
+
 ---
 <MainLayout title = "Home">
     <div class = "content-box">
         <section class="first-section">
-            <h1>Build Your Perfect Workout</h1>
-            <p>Design your fitness journey, your way. 
-                No pre-made plans, no paid subscriptions – 
-                just the tools you need to create workouts 
-                that actually work for you.</p>
+            <img src="/images/gym-photo.png" alt="picture of a gym">
+            <div class = "textbox headerbox">
+                <h1>{header1}</h1>
+            </div>
+            <div class ="textbox pbox">
+                <p>{paragraph1}</p>
+            </div>
         </section>
         <section class = "list-section">
-            <h2>Your Workout, Your Rules</h2>
-            <p>Tired of following someone else's workout plan? We get it. 
-                That's why we built MR Gymplanner – a free platform where 
-                you can:</p>
-            <ul>
-                <li>Design custom exercises from scratch </li>
-                <li>Organize exercises into workouts</li>
-                <li>Schedule your workouts in the calendar</li>
-                <li>Save unlimited workout templates </li>
-                <li>Share routines with friends</li>
-            </ul>
+            <p>
+                {paragraph2}
+            </p>
         </section>
         <section class = "cta-section">
-            <h2>Simple. Free. Forever.</h2>
-            <p>No credit card, no subscription, no catch. 
-                We're here to help you take control of your 
-                fitness journey without the premium price tag.</p>
-            <Button>Create your first workout</Button>
-            <p>Join thousands of others who are crafting their perfect workouts. 
-                Because nobody knows your fitness goals better than you do.
-                Built by gym enthusiasts, for gym enthusiasts</p>
+            
         </section>
     </div>
 </MainLayout>
 
 <style>
+    p{
+        color: var(--default-text);
+        font-size: var(--font-size-lg);
+    }
+    section{
+        text-align: left;
+        justify-content: center;
+        margin: 0 20%;
+    }
    .first-section{
+    position: relative;
     text-align: center;
+    margin: 0;
    }
-   .first-section h1{
-    font-size: 8rem;
+   .first-section img{
+    object-fit: cover;
+    width: 100%;
    }
+   .textbox{
+    position: absolute;
+   
+    transform: translate(-50%, -50%);
+
+    ;
+    background-color: #333333CC;
+
+    border-radius: 2vw;
+
+    display: flex;
+    align-items: center;
+    padding: 5%;
+   }
+
+   .headerbox{
+    top: 40%;
+    left: 30%;
+
+    width: 40vw;
+    height: 20vh
+   }
+   .pbox{
+    top: 60%;
+    left: 65%;
+
+    width: 30vw;
+    height: 15vh
+   }
+
+
+   @media (min-width: 750px){
+    .headerbox{
+    top: 30%;
+    left: 30%;
+
+    width: 40vw;
+    height: 60vh
+   }
+
+   .pbox{
+    top: 65%;
+    left: 50%;
+
+    width: 30vw;
+    height: 50vh
+   }
+
+   
+   }
+   .textbox h1{
+    color: var(--white);
+    font-size: 5vw;
+   }
+   .textbox p{
+    color: var(--white);
+    font-size: 2vw;
+   }
+   
+   
+   
 </style>
 
 
