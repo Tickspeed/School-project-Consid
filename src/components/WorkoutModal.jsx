@@ -1,14 +1,10 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import styles from "../assets/WorkoutModal_style.module.css"
 
 export default function WorkoutModal({setEditingItem, editingItem, data, onSave, onClose}){
 
     const titleInput = useRef("");
-
-    useEffect(()=>{
-        titleInput.current.value = editingItem.title
-    }, [editingItem.title])
-
+   
     const sortData = (allData)=>{
         const returnData = []
         for (let i = 0; i < allData.length; i++ ){
@@ -19,9 +15,24 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
         return returnData
     }
 
-    const allExercises = sortData(data)
-   
+    useEffect(()=>{
+        titleInput.current.value = editingItem.title
+        setAvailableExercises(() => {
+        return sortData(data).filter(exercise => 
+            !(editingItem.exercises || []).some(existingExercise => 
+                existingExercise.id === exercise.id
+            )
+    );
+})
+    }, [editingItem.title])
 
+    
+
+    
+    console.log(sortData(data))
+    const [availableExercises, setAvailableExercises] = useState([]);
+    
+    console.log(availableExercises)
     
     const removeExercise = (exerciseToRemove)=>{
 
@@ -35,17 +46,24 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
         };
 
         setEditingItem(updateItem);
+        setAvailableExercises([...availableExercises, exerciseToRemove])
     }
 
     const addExercise = (exerciseToAdd)=>{
+        
         const updatedExercises = [...editingItem.exercises, exerciseToAdd]
+        const updatedAvailableExercises = availableExercises.filter(
+            exercise => exercise.id !== exerciseToAdd.id
+        );
+    
 
         const updateItem =  {
             ...editingItem,
             exercises: updatedExercises
         };
-
+        
         setEditingItem(updateItem);
+        setAvailableExercises(updatedAvailableExercises);
     }
     
 
@@ -69,14 +87,16 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
                 <button 
                 onClick={(e) => {
                     e.preventDefault();
-                    
-                    onSave(editingItem.id, {
-                        exercises: editingItem.exercises,
+    
+                    const dataToSave = {
+                        exercises: editingItem?.exercises || [],
                         title: titleInput.current.value,
-                        id: editingItem.id
-                    })
-                    titleInput.current.value = ""
-                    onClose()
+                        id: editingItem?.id
+                    };
+                    
+                    onSave(editingItem?.id, dataToSave);
+                    titleInput.current.value = "";
+                    onClose();
                     }}>Save</button>
                 <button 
                 onClick={onClose}>Cancel</button>
@@ -84,7 +104,7 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
             
             <div className = {styles.addList}>
                 <ul>
-                    {allExercises.map((exercise)=>(
+                    {availableExercises.map((exercise)=>(
                         <li key={exercise.id}>
                             {exercise.title}<button className={styles.listAddBtn} onClick={()=>addExercise(exercise)}>Add</button>
                         </li>
