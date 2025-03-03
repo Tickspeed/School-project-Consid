@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "../assets/WorkoutModal_style.module.css"
 
-export default function WorkoutModal({setEditingItem, editingItem, data, onSave, onClose}){
+export default function WorkoutModal({setEditingItem, editingItem, data, onSave, onClose, onDelete}){
 
     const titleInput = useRef("");
    
@@ -29,11 +29,10 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
     
 
     
-    console.log(sortData(data))
+   
     const [availableExercises, setAvailableExercises] = useState([]);
     
-    console.log(availableExercises)
-    
+ 
     const removeExercise = (exerciseToRemove)=>{
 
         const updatedExercises = editingItem.exercises.filter(
@@ -84,6 +83,12 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
                         </li>
                     ))}
                 </ul>
+                <button onClick={(e)=>{
+                    e.preventDefault();
+                    onDelete(editingItem.id)
+                }} className={styles.modalDeleteBtn}>
+                    Delete
+                </button>
                 <button 
                 onClick={(e) => {
                     e.preventDefault();
@@ -94,7 +99,7 @@ export default function WorkoutModal({setEditingItem, editingItem, data, onSave,
                         id: editingItem?.id
                     };
                     
-                    onSave(editingItem?.id, dataToSave);
+                    onSave(editingItem.id, dataToSave);
                     titleInput.current.value = "";
                     onClose();
                     }}>Save</button>

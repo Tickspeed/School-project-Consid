@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import styles from "../assets/ExerciseModal_style.module.css"
 
-export default function ExerciseModal({editingItem, onSave, onClose}){
+export default function ExerciseModal({editingItem, onSave, onClose, onDelete}){
     useEffect(()=>{
         if (editingItem) {
             const form = document.querySelector('form');
@@ -25,7 +25,12 @@ export default function ExerciseModal({editingItem, onSave, onClose}){
                 <strong>Sets: </strong><input name = "sets" className = {styles.numberInput} type="number"/>
                 <strong>Reps: </strong><div><input name = "minReps" className = {styles.numberInput} type="number"/> - <input name = "maxReps" className = {styles.numberInput} type="number"/></div>
                 <strong>Weight: </strong><input name = "weight" type="text"/>
-            
+            <button onClick={(e)=>{
+                e.preventDefault();
+                onDelete(editingItem.id)
+            }} className={styles.modalDeleteBtn}>
+                Delete
+            </button>
             <button onClick={(e)=>{
                 e.preventDefault();
 

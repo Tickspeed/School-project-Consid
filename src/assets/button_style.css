@@ -12,6 +12,7 @@
 a.button{
     margin: 0;
     padding: 0;
+    border: none;
 }
 
 
@@ -19,7 +20,7 @@ a.button{
 
 /* variants */
 .button--primary{
-border: 1px solid white;
+
 color: rgba(255, 255, 255, 0.76);
 background-color: hsl(239, 56%, 40%);
 transition: transform 0.2s ease-in-out;
@@ -33,7 +34,7 @@ transform: scale(1.05);
 .button--primary:active{
     background-color: white;
     color: hsl(239, 56%, 40%);  
-    border: 1px solid hsl(239, 56%, 40%);
+    
 }
 
 .button--navbar{
@@ -68,7 +69,7 @@ transform: scale(1.05);
     background-color: #1a2b4c ;
     color: #ffffff !important;
     border-radius: 5px;
-    border: 0.2vw solid #1A2B4C;
+   
     transition: all 0.2s ease-in-out;
 }
 

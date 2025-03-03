@@ -22,14 +22,16 @@ const loadData = ()=>{
         const key = localStorage.key(i);
         if(key?.startsWith("data-workout")){
             const data = JSON.parse(localStorage.getItem(key))
+            console.log(key)
             dataArray.push(
                 {
-                    id: key,
-                    ...data
+                    ...data,
+                    id: key
                 }
             )
         }
     }
+    console.log(dataArray)
     return dataArray
 }
 

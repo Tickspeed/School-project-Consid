@@ -12,7 +12,14 @@ const {
     Every serious gym goer knows that it's easy to forget your planned exercises.
 
     And have already tried to search for a replacement from the default notes app on your phone.
-    `
+
+    Either it's free apps with a shitty designs or unneccessarily advanced planning apps that incorporate
+    AI into helping you plan a workout. But the advanced once usually cost a subscription per month.
+
+    MR Gym planner however is a simple web app where you can easily completly customize your own
+    exercises and workouts with a simple but streamlined UI.
+    `,
+    paragraph3 = "MR Gym planner offers:"
 } = Astro.props
 
 ---
@@ -23,22 +30,32 @@ const {
             <div class = "textbox headerbox">
                 <h1>{header1}</h1>
             </div>
-            <div class ="textbox pbox">
-                <p>{paragraph1}</p>
-            </div>
+            
         </section>
         <section class = "list-section">
             <p>
                 {paragraph2}
             </p>
+            <div class="cta-box1">
+                <div class="cta1-text">
+                    <p>
+                    {paragraph3}
+                    </p>
+                    <ul>
+                        <li>Create and customize exercises</li>
+                        <li>Group exercises into workout</li>
+                        <li>Plan workouts in a calendar(Not Coming Soon)</li>
+                    </ul>
+                </div>
+                <Button href="planner">Try the planner now!</Button>
+            </div>
         </section>
-        <section class = "cta-section">
-            
-        </section>
+        
     </div>
 </MainLayout>
 
 <style>
+    
     p{
         color: var(--default-text);
         font-size: var(--font-size-lg);
@@ -48,6 +65,33 @@ const {
         justify-content: center;
         margin: 0 20%;
     }
+    .list-section{
+        margin: 2vh 10vw;
+    }
+    .cta-box1{
+        margin: 2vh 0;
+        padding: 4vh 5vw;
+        background-color: var(--light-green);
+    }
+
+    .cta1-text{
+        margin-bottom: 4vh;
+    }
+    .cta1-text p{
+        font-size: var(--font-size-3xl);
+        color: var(--white);
+    }
+    .cta1-text ul {
+        margin-left: 1rem;
+        color: var(--white);
+        margin-bottom: 2vh;
+    }
+
+    .cta1-text li{
+        font-size: var(--font-size-lg);
+        
+    }
+    
    .first-section{
     position: relative;
     text-align: center;
@@ -62,7 +106,7 @@ const {
    
     transform: translate(-50%, -50%);
 
-    ;
+    
     background-color: #333333CC;
 
     border-radius: 2vw;
@@ -73,37 +117,25 @@ const {
    }
 
    .headerbox{
-    top: 40%;
-    left: 30%;
+    top: 50%;
+    left: 50%;
 
-    width: 40vw;
+    width: 60vw;
     height: 20vh
    }
-   .pbox{
-    top: 60%;
-    left: 65%;
-
-    width: 30vw;
-    height: 15vh
-   }
+   
 
 
    @media (min-width: 750px){
     .headerbox{
-    top: 30%;
-    left: 30%;
+    top: 50%;
+    left: 50%;
 
-    width: 40vw;
+    width: 80vw;
     height: 60vh
    }
 
-   .pbox{
-    top: 65%;
-    left: 50%;
-
-    width: 30vw;
-    height: 50vh
-   }
+   
 
    
    }

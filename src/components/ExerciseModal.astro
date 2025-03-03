@@ -46,7 +46,7 @@ saveBtn.addEventListener('click', (e) => {
         muscles: muscleInput.value,
     }
     const id = saveBtn.dataset.exerciseId
-    console.log(id)
+    
     localStorage.setItem(id, JSON.stringify(entry))
 })
 </script>

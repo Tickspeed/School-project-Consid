@@ -7,7 +7,7 @@ import { Icon } from 'astro-icon/components'
 const navItems = [
   {
     text: "Planner",
-    href: "/planner"
+    href: "/exercises"
   },
   {
     text: "Calculator",
@@ -25,7 +25,7 @@ const navItems = [
 ---
 
 <header class = "header">
-      <Logo height = "5rem"/>
+      <Logo />
       <Icon id = "navbar-bnt"class = "menu-icon" name = "burger-menu"/>
       <nav id = "dropdown-navbar"class = "navbar hidden">
         <ul class = "">
@@ -43,7 +43,7 @@ const navItems = [
   const button = document.querySelector('#navbar-bnt')
   const dropdown = document.querySelector('.navbar')
   button?.addEventListener('click', (e) =>{
-    console.log("hi")
+    
     dropdown?.classList.toggle("hidden")
   })
 </script>

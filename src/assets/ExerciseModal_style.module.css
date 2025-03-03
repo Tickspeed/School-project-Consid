@@ -39,6 +39,13 @@ input, textarea{
     grid-column: span 2;
     padding: var(--padding-sm) 0;
 }
+.modalDeleteBtn{
+    background-color: var(--yellow);
+    color: var(--white);
+    border: none;
+    grid-column: span 2;
+    padding: var(--padding-sm) 0;
+}
 button:hover{
     filter: brightness(0.8);
 }

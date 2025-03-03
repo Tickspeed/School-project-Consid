@@ -64,3 +64,7 @@ button{
     color: white;
     padding: 1.5vh 1vh;
 }
+
+button.modalDeleteBtn{
+    background-color: var(--yellow);
+}

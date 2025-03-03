@@ -65,6 +65,7 @@ export default function ItemGrid({sortData, emptyItem, CardComponent, ModalCompo
         const item = items.find(element => element.id == id)
         setEditingItem(item)
         modal.showModal();
+       
     }
 
     const handleSave = (id, data) =>{
@@ -72,6 +73,13 @@ export default function ItemGrid({sortData, emptyItem, CardComponent, ModalCompo
         localStorage.setItem(exerciseId, JSON.stringify(data))
         loadItems()
         setEditingItem({})
+    }
+
+    const handleDelete = (id) =>{
+        localStorage.removeItem(id)
+        loadItems()
+        setEditingItem({})
+        handleClose()
     }
 
     const handleClose = () => {
@@ -98,7 +106,8 @@ export default function ItemGrid({sortData, emptyItem, CardComponent, ModalCompo
             editingItem={editingItem} 
             data={rawData} 
             onClose={handleClose} 
-            onSave={handleSave} />
+            onSave={handleSave}
+            onDelete={handleDelete}/>
         </dialog>
       
     </div>

@@ -22,5 +22,37 @@ const className = `button button--${variant} button--${size}`;
 
 
 <style>
-    @import "../assets/button_style.css";
+    .button{
+        display: inline-block;
+        background-color: var(--dark-blue);
+        color: var(--white);
+        border: none;
+        font-size: var(--font-size-lg);
+
+        padding: 3vh 5vw;
+        transition: all 0.05s;
+        text-decoration: none;
+        
+        
+        }
+    
+    .button:active{
+        scale: 1.05;
+    }
+    @media (min-width: 600px) {
+        
+        .button{
+        padding: 3vh 5vw;
+        
+
+        margin: 0 0;
+        transition: all 0.1s;
+    }
+        .button:hover{
+        scale: 1.05;
+        }
+        .button:active{
+            filter: brightness(1.4);
+        }
+    }
 </style>
