@@ -1,0 +1,15 @@
+---
+import PlannerLayout from "../layouts/PlannerLayout.astro"
+import MainLayout from "../layouts/MainLayout.astro"
+import MyCalendar from "../components/CalenderComponent"
+---
+
+
+<MainLayout title = "Planner">
+    <PlannerLayout>
+        <div class="calendar">
+            <MyCalendar client:load />
+        </div>
+    </PlannerLayout>
+</MainLayout>
+
