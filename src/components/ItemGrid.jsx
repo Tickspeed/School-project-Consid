@@ -44,12 +44,13 @@ export default function ItemGrid({sortData, emptyItem, CardComponent, ModalCompo
                 )
             }
         }
-        console.log(dataArray)
+        console.log("ItemGrid loaded all data with 'data' tag from localstorage",dataArray)
         setRawData(dataArray)
       
+        const sortedData = sortData(dataArray)
+        console.log("ItemGrid sorted data ", sortedData)
         
-        
-        setItems(items)
+        setItems(sortedData)
     }
 
     const handleAdd = () => {
