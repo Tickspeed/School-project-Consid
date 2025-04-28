@@ -56,7 +56,7 @@ export default function ItemGrid({sortData, emptyItem, CardComponent, ModalCompo
     const handleAdd = () => {
         
         const modal = document.querySelector('#modal')
-        const saveBtn = document.querySelector('#save-btn')
+        
         
         setEditingItem(emptyItem);
         modal.showModal();
@@ -89,7 +89,7 @@ export default function ItemGrid({sortData, emptyItem, CardComponent, ModalCompo
         <div className={styles.grid}>
         {items.length > 0 ? (
         items.map((item) => (
-            <CardComponent item={item} onEdit={handleEdit} />
+            <CardComponent item={item} onEdit={handleEdit} key={item.title}/>
         ))
     ) : (
         <p>No workouts available. Click "Add new" to create one!</p>

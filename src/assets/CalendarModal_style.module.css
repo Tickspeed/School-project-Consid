@@ -1,0 +1,40 @@
+.modal{
+    display: flex;
+    flex-direction: row;
+    
+
+    background:  var(--white);
+}
+
+.mainBox{
+    border: solid var(--dark-blue) 3px;
+    height: 30vh;
+    width: 10vw;
+    display: flex;
+    flex-direction: column;
+
+    
+}
+
+.workoutList{
+    list-style: none;
+    
+}
+
+.workoutList li{
+    width: inherit;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.listBox{
+    width: 10vw;
+    padding: 0 1vw;
+    overflow-y: auto;
+}
+
+.exerciseDetails{
+    display: flex;
+    flex-direction: column;
+}
